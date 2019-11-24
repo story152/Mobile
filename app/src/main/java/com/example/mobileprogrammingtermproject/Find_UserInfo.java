@@ -1,7 +1,6 @@
 package com.example.mobileprogrammingtermproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class Find_UserInfo extends AppCompatActivity {

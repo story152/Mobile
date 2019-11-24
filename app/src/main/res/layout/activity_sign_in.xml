@@ -4,92 +4,160 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Sign_in">
 
     <ActionMenuView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
-
-
-
-
+        android:theme="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:text="회원정보"
+        android:textSize="30dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/id1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아이디" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="318dp"
+            android:layout_toEndOf="@+id/id1"
+            android:text="4~ 20자 " />
+
+    </RelativeLayout>
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/input_id"
-        />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/input_password"
-        />
-
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/input_password_check"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/input_email"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/input_email_check"
-        />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/input_nickname"
-        />
-
-
+        android:layout_height="wrap_content" />
 
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/check_id"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sign_up"
-        />
+        android:layout_gravity="right"
+        android:onClick="buttonclick"
+        android:text="중복확인" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/pw1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="303dp"
+            android:layout_toEndOf="@+id/pw1"
+            android:text="4~ 20자 " />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/input_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호 확인" />
+
+    <EditText
+        android:id="@+id/input_password_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="29dp">
+
+        <TextView
+            android:id="@+id/emil1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일" />
+
+        <TextView
+            android:layout_width="182dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="187dp"
+            android:layout_toEndOf="@+id/emil1"
+            android:text="아이디/비밀번호 찾기에 필요" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/input_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_marginLeft="200dp"
+            android:text="5:00" />
+
+        <Button
+            android:id="@+id/email_cer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="49dp"
+            android:layout_toEndOf="@+id/timer"
+            android:onClick="buttonclick"
+            android:text="인증코드 전송" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인증 코드" />
+
+
+    <EditText
+        android:id="@+id/input_email_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임" />
+
+    <EditText
+        android:id="@+id/input_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="buttonclick"
+        android:text="완료" />
 
 </LinearLayout>

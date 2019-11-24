@@ -1,7 +1,6 @@
 package com.example.mobileprogrammingtermproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +28,8 @@ public class login extends AppCompatActivity {
     public void buttonclick(View view){
         switch (view.getId()){
             case R.id.login_btn:
+                Intent login = new Intent(this, MainActivity.class);
+                startActivity(login);
                 break;
             case R.id.Find_userInfo:
                 Intent find = new Intent(this, Find_UserInfo.class);

@@ -4,57 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".login"
     android:orientation="vertical">
 
-
-
-
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_width="238dp"
+        android:layout_height="143dp"
+        android:src="@drawable/logo2"
+        android:layout_gravity="center"
         />
 
-
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="앱 이름 두둥"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:textColor="#4F4FAA"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="한기대생들의 한기대생들을 위한"
+        android:layout_gravity="center"
         />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/id"
-        />
-    <EditText
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="아이디"
+        android:layout_marginHorizontal="50dp"
+        />
+
+    <EditText
         android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호"
+        android:layout_marginHorizontal="50dp"
         />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:id="@+id/login_btn"
-        android:onClick="buttonclick"
-        />
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="buttonclick"
+        android:text="로그인" />
+
+    <Button
         android:id="@+id/Find_userInfo"
-        android:onClick="buttonclick"
-        />
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/signIn"
+        android:layout_gravity="center"
         android:onClick="buttonclick"
-        />
+        android:text="아이디/비밀번호찾기" />
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="buttonclick"
+        android:text="회원가입" />
 
 </LinearLayout>

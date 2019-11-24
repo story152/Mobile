@@ -4,44 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".Accept_check"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:text="약관 동의"
+        android:textSize="35dp"/>
+
+    <CheckBox
+        android:id="@+id/accept2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이용약관에 모두 동의합니다" />
 
     <CheckBox
         android:id="@+id/accept1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
-    <CheckBox
-        android:id="@+id/accept2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="만 18세 이상입니다(필수)" />
+
     <CheckBox
         android:id="@+id/accept3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="개인정보이용 동의(필수)" />
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ScrollView1"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accept1"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
     <CheckBox
+        android:layout_marginTop="20dp"
         android:id="@+id/accept4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="서비스이용약관 동의(필수)" />
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ScrollView2"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accept1"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <CheckBox
+        android:id="@+id/accept5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="광고정보수집 동의(선택)" />
 
     <Button
+        android:id="@+id/accept_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/accept_btn"
-        />
+        android:layout_gravity="center"
+        android:onClick="buttonclick"
+        android:text="다음으로" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
+
 </LinearLayout>
 
