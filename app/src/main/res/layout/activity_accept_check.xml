@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Accept_check"
+    tools:context=".MainActivity"
     android:orientation="vertical">
 
     <TextView
@@ -13,17 +13,18 @@
         android:text="약관 동의"
         android:textSize="35dp"/>
 
+
     <CheckBox
         android:id="@+id/accept2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="이용약관에 모두 동의합니다" />
+        android:text="이용약간에 모두 동의합니다" />
 
     <CheckBox
         android:id="@+id/accept1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="만 18세 이상입니다(필수)" />
+        android:text="만 18세 이상입니다" />
 
     <CheckBox
         android:id="@+id/accept3"
@@ -32,6 +33,7 @@
         android:text="개인정보이용 동의(필수)" />
 
     <ScrollView
+
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/ScrollView1"
@@ -51,6 +53,7 @@
                 />
 
         </LinearLayout>
+
     </ScrollView>
 
     <CheckBox
@@ -58,9 +61,11 @@
         android:id="@+id/accept4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="서비스이용약관 동의(필수)" />
+        android:text="서비스이용약간 동의(필수)" />
+
 
     <ScrollView
+
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/ScrollView2"
@@ -80,7 +85,11 @@
                 />
 
         </LinearLayout>
+
     </ScrollView>
+
+
+
 
     <CheckBox
         android:id="@+id/accept5"
@@ -93,13 +102,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="buttonclick"
         android:text="다음으로" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
+
 
 </LinearLayout>
 

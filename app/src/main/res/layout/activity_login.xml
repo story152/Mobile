@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login"
+    tools:context=".MainActivity"
     android:orientation="vertical">
+
 
     <ImageView
         android:layout_marginTop="50dp"
@@ -32,8 +33,8 @@
         />
 
     <EditText
-        android:id="@+id/id"
         android:layout_marginTop="30dp"
+        android:id="@+id/id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="아이디"
@@ -48,13 +49,14 @@
         android:layout_marginHorizontal="50dp"
         />
 
+
+
     <Button
         android:layout_marginTop="30dp"
         android:id="@+id/login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="buttonclick"
         android:text="로그인" />
 
     <Button
@@ -62,7 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="buttonclick"
         android:text="아이디/비밀번호찾기" />
 
     <Button
@@ -70,7 +71,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="buttonclick"
         android:text="회원가입" />
+
+
+
 
 </LinearLayout>

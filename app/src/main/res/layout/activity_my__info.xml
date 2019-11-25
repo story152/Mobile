@@ -30,18 +30,18 @@
             android:orientation="vertical"
             android:layout_marginLeft="20dp"
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="USER_NICK" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="USER_NICK" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="이름/ID"
-                android:gravity="left"
-                />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름/ID"
+            android:gravity="left"
+            />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -62,58 +62,58 @@
 
 
 
-    <LinearLayout
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:orientation="vertical" >
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:text="계정"
-            android:textSize="25dp"
-            />
-
-        <Button
-            android:layout_marginTop="20dp"
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="left"
-            android:textSize="22dp"
-            android:text="프로필 이미지 변경"
-            android:background="#FFFCFF	"
-            android:textColor="#5C5C61"
-            android:id="@+id/profile_update_btn"
-            />
+            android:layout_height="180dp"
+            android:orientation="vertical" >
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textColor="#5C5C61"
-            android:background="#FFFFFF	"
-            android:textSize="22dp"
-            android:gravity="left"
-            android:text="닉네임 변경"
-            android:id="@+id/nick_update_btn"
-            />
 
-        <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:text="계정"
+                android:textSize="25dp"
+                />
 
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="left"
-            android:textSize="22dp"
-            android:text="회원 탈퇴"
-            android:textColor="#5C5C61"
-            android:background="#FFFCFF	"
-            android:id="@+id/Withdrawal_btn"
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="left"
+                android:textSize="22dp"
+                android:text="프로필 이미지 변경"
+                android:background="#FFFCFF	"
+                android:textColor="#5C5C61"
+                android:id="@+id/profile_update_btn"
+                />
 
-            />
-    </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textColor="#5C5C61"
+                android:background="#FFFFFF	"
+                android:textSize="22dp"
+                android:gravity="left"
+                android:text="닉네임 변경"
+                android:id="@+id/nick_update_btn"
+                />
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="left"
+                android:textSize="22dp"
+                android:text="회원 탈퇴"
+                android:textColor="#5C5C61"
+                android:background="#FFFCFF	"
+                android:id="@+id/Withdrawal_btn"
+
+                />
+        </LinearLayout>
 
     <LinearLayout
         android:layout_marginLeft="20dp"
