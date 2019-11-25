@@ -7,11 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 
 public class Sign_in extends AppCompatActivity {
     TextView timer;
@@ -25,15 +29,21 @@ public class Sign_in extends AppCompatActivity {
     private DBHelper helper;
     private SQLiteDatabase db;
 
-    EditText editid;
-    EditText editpw;
+    EditText editid, editpw, inputmail, email_check;
+
+    String mailcode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        helper = new DBHelper(this);
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder() // 인터넷 사용하기 위해 권한 얻는 것
+                .permitDiskReads()
+                .permitDiskWrites()
+                .permitNetwork().build());
+
+        helper = new DBHelper(this); // DBDB
         // DBHelper 객체를 이용하여 DB 생성
         try {
             db = helper.getWritableDatabase();
@@ -42,7 +52,7 @@ public class Sign_in extends AppCompatActivity {
         }
     }
 
-    public void insert(View v){
+    public void insert(View v){ // DBDB
         editid = findViewById(R.id.input_id);
         editpw = findViewById(R.id.input_password);
         String ID = editid.getText().toString();
@@ -57,7 +67,7 @@ public class Sign_in extends AppCompatActivity {
         editpw.setText("");
     }
 
-    public void search(View v) {
+    public void search(View v) { // DB검색
         editid = findViewById(R.id.input_id);
         editpw = findViewById(R.id.input_password);
         String ID = editid.getText().toString();
@@ -77,25 +87,61 @@ public class Sign_in extends AppCompatActivity {
         cursor.close();
     }
 
-    public void buttonclick(View view){
+    public void buttonclick(View view){ // 버튼 클릭
         switch (view.getId()){
-            case R.id.check_id:
+            case R.id.check_id: // 중복확인 버튼
                 insert(view);
                 break;
-            case R.id.email_cer:
+            case R.id.email_cer: // 인증코드 전송 버튼
                 btnemail = findViewById(R.id.email_cer);
                 btnemail.setEnabled(false);
                 countDownTimer();
+                sendmail();
                 search(view);
                 break;
-            case R.id.sign_up:
-                // 중복확인 됬고, 메일인증이 확인 된후에 finish시켜야함
-                finish();
+            case R.id.sign_up: // 완료 버튼
+                if(checkall()){ // 중복확인, 메일인증이 완료되면
+                    countDownTimer.cancel(); // 타이머 멈춤
+                    finish(); // 액티비티 종료
+                }
                 break;
         }
     }
 
-    public void countDownTimer(){
+    boolean checkall(){ // 중복 확인 및 메일인증됬는지 검사하는 함수
+        email_check = findViewById(R.id.input_email_check);
+
+        if(email_check.getText().toString().equals(mailcode)){ // 인증번호 확인
+            // 중복확인도 추가해야함
+            return true;
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"인증번호가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+        }
+
+        return false;
+    }
+
+    void sendmail(){ // 메일보내는 메소드
+        inputmail = findViewById(R.id.input_email);
+
+        try{
+            GMailSender gMailSender = new GMailSender("hyun6045@gmail.com","rkdgus147");
+            String body = "인증코드: " +gMailSender.getEmailCode();
+            mailcode = gMailSender.getEmailCode();
+            gMailSender.sendMail("앱이름: 인증코드",body,inputmail.getText().toString());
+            Toast.makeText(getApplicationContext(), "이메일을 성공적으로 보냈습니다.", Toast.LENGTH_SHORT).show();
+        }catch (SendFailedException e){
+            Toast.makeText(getApplicationContext(), "이메일 형식이 잘못되었습니다.", Toast.LENGTH_SHORT).show();
+        } catch (MessagingException e) {
+            Toast.makeText(getApplicationContext(), "인터넷 연결을 확인해주십시오", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void countDownTimer(){ // 타이머 메소드
         timer = findViewById(R.id.timer);
         code = findViewById(R.id.input_email_check);
         btnemail = findViewById(R.id.email_cer);
