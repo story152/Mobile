@@ -29,7 +29,7 @@ public class Sign_in extends AppCompatActivity {
     private DBHelper helper;
     private SQLiteDatabase db;
 
-    EditText editid, editpw, inputmail, email_check;
+    EditText editid, editpw, pw_check, inputmail, email_check , editnn;
 
     String mailcode;
 
@@ -52,37 +52,39 @@ public class Sign_in extends AppCompatActivity {
         }
     }
 
-    public void insert(View v){ // DBDB
+    public void insert(){ // DBDB
         editid = findViewById(R.id.input_id);
         editpw = findViewById(R.id.input_password);
+        inputmail = findViewById(R.id.input_email);
+        editnn = findViewById(R.id.input_nickname);
+
         String ID = editid.getText().toString();
         String PW = editpw.getText().toString();
+        String EM = inputmail.getText().toString();
+        String NN = editnn.getText().toString();
 
         // 아이디와 비밀번호를 가지고 INSERT 문을 만들어 실행
-        db.execSQL("INSERT INTO id_info VALUES (null, '" + ID + "', '" + PW + "');");
+        db.execSQL("INSERT INTO " + "id_info" + " (ID, PW, EM, NN) VALUES ('"+ ID + "', '" + PW + "', '" + EM + "', '" + NN + "');");
         Toast.makeText(getApplicationContext(), "성공적으로 추가되었음", Toast.LENGTH_SHORT).show();
-
-        // EditText 초기화
-        editid.setText("");
-        editpw.setText("");
     }
 
-    public void search(View v) { // DB검색
+    public void search() { // DB검색
         editid = findViewById(R.id.input_id);
         editpw = findViewById(R.id.input_password);
         String ID = editid.getText().toString();
         Cursor cursor;
         // EditText에 입력된 이름을 가지고 쿼리문을 만들어 실행
-        cursor = db.rawQuery("SELECT ID, PW FROM id_info WHERE ID='" + ID + "';", null);
+        cursor = db.rawQuery("SELECT ID, EM FROM id_info WHERE ID='" + ID + "';", null);
         // 반환된 커서에 ResultSets의 행의 개수가 0개일 경우
+
         if(cursor.getCount() == 0) {
             Toast.makeText(getApplicationContext(), "해당 아이디가 없습니다", Toast.LENGTH_SHORT).show();
             return;
         }
         // 반환된 커서를 가지고 전화번호 얻고 EditText에 표시
         while(cursor.moveToNext()) {
-            String tel = cursor.getString(1);
-            editpw.setText(tel);
+            String em = cursor.getString(1);
+            editpw.setText(em);
         }
         cursor.close();
     }
@@ -90,16 +92,16 @@ public class Sign_in extends AppCompatActivity {
     public void buttonclick(View view){ // 버튼 클릭
         switch (view.getId()){
             case R.id.check_id: // 중복확인 버튼
-                insert(view);
+                insert();
                 break;
             case R.id.email_cer: // 인증코드 전송 버튼
                 btnemail = findViewById(R.id.email_cer);
                 btnemail.setEnabled(false);
                 countDownTimer();
                 sendmail();
-                search(view);
                 break;
             case R.id.sign_up: // 완료 버튼
+                search();
                 if(checkall()){ // 중복확인, 메일인증이 완료되면
                     countDownTimer.cancel(); // 타이머 멈춤
                     finish(); // 액티비티 종료
@@ -110,12 +112,18 @@ public class Sign_in extends AppCompatActivity {
 
     boolean checkall(){ // 중복 확인 및 메일인증됬는지 검사하는 함수
         email_check = findViewById(R.id.input_email_check);
+        editpw = findViewById(R.id.input_password);
+        pw_check = findViewById(R.id.input_password_check);
+        boolean pwcheck = (editpw.getText().toString().equals(pw_check.getText().toString()));
 
-        if(email_check.getText().toString().equals(mailcode)){ // 인증번호 확인
+        if(email_check.getText().toString().equals(mailcode) && pwcheck){ // 인증번호 확인, 비밀번호 확인
             // 중복확인도 추가해야함
             return true;
         }
-        else{
+        else if(!pwcheck){
+            Toast.makeText(getApplicationContext(),"비밀번호가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+        }
+        else if(!email_check.getText().toString().equals(mailcode)){
             Toast.makeText(getApplicationContext(),"인증번호가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
         }
 

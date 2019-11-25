@@ -13,7 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE id_info ( _id INTEGER PRIMARY KEY AUTOINCREMENT, ID TEXT, PW TEXT);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + "id_info" +" (ID VARCHAR(20), PW VARCHAR(20), EM VARCHAR(30), NN VARCHAR(20) );");
     }
 
     @Override

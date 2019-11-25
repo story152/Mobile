@@ -72,7 +72,8 @@
     <EditText
         android:id="@+id/input_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,7 +83,8 @@
     <EditText
         android:id="@+id/input_password_check"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -116,9 +118,9 @@
             android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_marginLeft="200dp"
-            android:text="5:00" />
+            android:text="5:00"
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/email_cer"
