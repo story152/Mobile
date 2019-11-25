@@ -144,6 +144,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/check_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:onClick="buttonclick"
+        android:text="코드 확인" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

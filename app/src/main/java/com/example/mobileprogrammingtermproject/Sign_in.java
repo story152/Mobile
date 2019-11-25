@@ -32,6 +32,7 @@ public class Sign_in extends AppCompatActivity {
     EditText editid, editpw, pw_check, inputmail, email_check , editnn;
 
     String mailcode;
+    boolean isid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,36 +58,32 @@ public class Sign_in extends AppCompatActivity {
         editpw = findViewById(R.id.input_password);
         inputmail = findViewById(R.id.input_email);
         editnn = findViewById(R.id.input_nickname);
-
         String ID = editid.getText().toString();
         String PW = editpw.getText().toString();
         String EM = inputmail.getText().toString();
         String NN = editnn.getText().toString();
 
-        // 아이디와 비밀번호를 가지고 INSERT 문을 만들어 실행
-        db.execSQL("INSERT INTO " + "id_info" + " (ID, PW, EM, NN) VALUES ('"+ ID + "', '" + PW + "', '" + EM + "', '" + NN + "');");
-        Toast.makeText(getApplicationContext(), "성공적으로 추가되었음", Toast.LENGTH_SHORT).show();
-    }
-
-    public void search() { // DB검색
-        editid = findViewById(R.id.input_id);
-        editpw = findViewById(R.id.input_password);
-        String ID = editid.getText().toString();
         Cursor cursor;
-        // EditText에 입력된 이름을 가지고 쿼리문을 만들어 실행
-        cursor = db.rawQuery("SELECT ID, EM FROM id_info WHERE ID='" + ID + "';", null);
-        // 반환된 커서에 ResultSets의 행의 개수가 0개일 경우
+        cursor = db.rawQuery("SELECT ID FROM id_info ", null);
 
-        if(cursor.getCount() == 0) {
-            Toast.makeText(getApplicationContext(), "해당 아이디가 없습니다", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        // 반환된 커서를 가지고 전화번호 얻고 EditText에 표시
         while(cursor.moveToNext()) {
-            String em = cursor.getString(1);
-            editpw.setText(em);
+            String id = cursor.getString(0);
+            if(id.equals(ID)){
+                isid = true;
+                break;
+            }
+            else
+                isid = false;
         }
         cursor.close();
+        if(!isid){
+            // 이건 확인 버튼 누를때 들어가야지
+            //db.execSQL("INSERT INTO " + "id_info" + " (ID, PW, EM, NN) VALUES ('"+ ID + "', '" + PW + "', '" + EM + "', '" + NN + "');");
+            Toast.makeText(getApplicationContext(), "이 아이디는 사용가능합니다.", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"아이디가 이미 존재합니다.",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void buttonclick(View view){ // 버튼 클릭
@@ -100,14 +97,20 @@ public class Sign_in extends AppCompatActivity {
                 countDownTimer();
                 sendmail();
                 break;
+            case R.id.check_email:
+                countDownTimer.cancel(); // 타이머 멈춤
+
+                break;
             case R.id.sign_up: // 완료 버튼
-                search();
                 if(checkall()){ // 중복확인, 메일인증이 완료되면
-                    countDownTimer.cancel(); // 타이머 멈춤
                     finish(); // 액티비티 종료
                 }
                 break;
         }
+    }
+
+    void check_email(){
+        email_check = findViewById(R.id.input_email_check);
     }
 
     boolean checkall(){ // 중복 확인 및 메일인증됬는지 검사하는 함수
