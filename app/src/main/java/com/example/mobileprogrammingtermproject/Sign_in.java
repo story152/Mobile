@@ -97,10 +97,10 @@ public class Sign_in extends AppCompatActivity {
                 countDownTimer();
                 sendmail();
                 break;
-            case R.id.check_email:
-                countDownTimer.cancel(); // 타이머 멈춤
+           // case R.id.check_email:
+             //   countDownTimer.cancel(); // 타이머 멈춤
 
-                break;
+               // break;
             case R.id.sign_up: // 완료 버튼
                 if(checkall()){ // 중복확인, 메일인증이 완료되면
                     finish(); // 액티비티 종료
@@ -153,7 +153,7 @@ public class Sign_in extends AppCompatActivity {
     }
 
     public void countDownTimer(){ // 타이머 메소드
-        timer = findViewById(R.id.timer);
+      //  timer = findViewById(R.id.timer);
         code = findViewById(R.id.input_email_check);
         btnemail = findViewById(R.id.email_cer);
 

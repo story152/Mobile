@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobileprogrammingtermproject">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,19 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login">
+        <activity android:name=".Suggestion"></activity>
+        <activity android:name=".Free_Board" />
+        <activity android:name=".Board">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Accept_check"></activity>
-        <activity android:name=".Find_UserInfo"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Sign_in"></activity>
+        <activity android:name=".Accept_check" />
+        <activity android:name=".Find_UserInfo" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Sign_in" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
 </manifest>

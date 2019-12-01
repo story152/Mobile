@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".Board">
+    tools:context=".Free_Board"
+    >
 
     <!--자유섹시판-->
 
@@ -25,7 +26,7 @@
         <ActionMenuView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-<!-- 글쓰기를 액션바에서 해야함 ㅇㅈ?-->
+        <!-- 글쓰기를 액션바에서 해야함 ㅇㅈ?-->
 
     </LinearLayout>
 

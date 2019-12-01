@@ -29,20 +29,29 @@
                 android:layout_height="wrap_content"
                 android:text="강의 평가"
                 android:textAlignment="textStart"
+                android:background="#B2EC4107"
+                android:layout_margin="5dp"
+
                 />
             <Button
+                android:layout_margin="5dp"
+                android:background="#D8EC9042"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="자유 게시판"
                 android:textAlignment="textStart"
                 />
             <Button
+                android:layout_margin="5dp"
+                android:background="#DAADE92E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="textStart"
                 android:text="취업 게시판"
                 />
             <Button
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="장터 게시판"
